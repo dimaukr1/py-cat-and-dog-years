@@ -20,28 +20,12 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
     """
     human_cat_age = 0
     human_dog_age = 0
-    while cat_age > 0:
-        if cat_age > 24:
-            human_cat_age += 1
-            cat_age -= 4
-        elif cat_age <= 24 and cat_age > 15:
-            human_cat_age += 1
-            cat_age -= 9
-        elif cat_age == 15:
-            human_cat_age += 1
-            cat_age -= 15
-        elif cat_age < 15:
-            break
-    while dog_age > 0:
-        if dog_age > 24:
-            human_dog_age += 1
-            dog_age -= 5
-        elif dog_age <= 24 and dog_age > 15:
-            human_dog_age += 1
-            dog_age -= 9
-        elif dog_age == 15:
-            human_dog_age += 1
-            dog_age -= 15
-        elif dog_age < 15:
-            break
+    if cat_age >= 15 and cat_age < 24:
+        human_cat_age = 1
+    elif cat_age >= 24:
+        human_cat_age = 2 + (cat_age - 24) // 4
+    if dog_age >= 15 and dog_age < 24:
+        human_dog_age = 1
+    elif dog_age >= 24:
+        human_dog_age = 2 + (dog_age - 24) // 5
     return [human_cat_age, human_dog_age]
